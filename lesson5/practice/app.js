@@ -3,6 +3,7 @@ var superagent = require('superagent'),
 	eventproxy = require('eventproxy'),
 	express = require('express'),
 	url = require('url');
+	async = require('async');
 
 var cnodeUrl = 'https://cnodejs.org/';
 
@@ -18,8 +19,29 @@ app.get('/',function(req,res){
 			  var href = url.resolve(cnodeUrl, $element.attr('href'));
 			  topicUrls.push(href);
 			});
-		})
+
+			var i = 0;
+			async.mapLimit(topicUrls,5,function(url,callback){
+				superagent.get(url)
+					.end(function(error,res){
+						if(error){
+							callback(error);
+						}else{
+							console.log('已抓取'+(++i)+'个地址','当前地址'+url);
+							var $ = cheerio.load(res.text);
+							var data = {
+								title: $('.topic_full_title').text().trim(),
+								href: url,
+								comment1: $('.reply_content').eq(0).text().trim(),
+							}
+							callback(null,data);
+						}
+					})
+			},function(err,data){
+				res.send(data);
+			});
+		});
 });
-app.listen(8888,function(){
+app.listen(8881,function(){
 	console.log(666);
 })
