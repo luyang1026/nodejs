@@ -14,11 +14,14 @@ describe('test/main.test.js', function () {
   	main.fibonacci(10).should.equal(55)
   });
 
-  it('should throw when n > 10',function(){
-  	main.fibonacci(11).should.throw('n should <=10');
+ it('should throw when n < 0', function () {
+    (function () {
+      main.fibonacci(-1);
+    }).should.throw('n should >= 0');
   });
 
-  it('should throw when n<0',function(){
-  	main.fibonacci(-1).should.throw('')
-  })
+
+  // it('should throw when n<0',function(){
+  // 	main.fibonacci(-1).should.throw('')
+  // })
 });
