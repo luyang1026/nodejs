@@ -1,0 +1,37 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luyang1026/nodejs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/luyang1026/nodejs/issues"
+  },
+  "homepage": "https://github.com/luyang1026/nodejs#readme",
+  "dependencies": {
+    "async": "^2.0.0-rc.6",
+    "axios": "^0.16.2",
+    "body-parser": "^1.17.2",
+    "cheerio": "^0.20.0",
+    "eventproxy": "^0.3.4",
+    "express": "^4.14.0",
+    "fs-extra": "^3.0.1",
+    "koa": "^2.3.0",
+    "mysql": "^2.14.1",
+    "orm": "^3.2.4",
+    "pg": "^6.4.0",
+    "superagent": "^2.0.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.0"
+  }
+}

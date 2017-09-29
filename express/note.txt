@@ -1,0 +1,4 @@
+1.使用express生成器
+  安装	npm install express-generator -g
+  创建应用 express app
+  
